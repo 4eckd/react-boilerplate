@@ -1,0 +1,131 @@
+/* FUSED GAMING Theme System - 5 Theme Support */
+
+/* Dark Theme (Default) */
+.theme-dark {
+  --color-background: 15 15 15; /* #0f0f0f */
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-card: 26 26 26; /* #1a1a1a */
+  --color-card-foreground: 255 255 255; /* #ffffff */
+  --color-popover: 26 26 26; /* #1a1a1a */
+  --color-popover-foreground: 255 255 255; /* #ffffff */
+  --color-primary: 220 38 38; /* #dc2626 */
+  --color-primary-foreground: 255 255 255; /* #ffffff */
+  --color-secondary: 38 38 38; /* #262626 */
+  --color-secondary-foreground: 255 255 255; /* #ffffff */
+  --color-muted: 38 38 38; /* #262626 */
+  --color-muted-foreground: 163 163 163; /* #a3a3a3 */
+  --color-accent: 38 38 38; /* #262626 */
+  --color-accent-foreground: 255 255 255; /* #ffffff */
+  --color-destructive: 239 68 68; /* #ef4444 */
+  --color-destructive-foreground: 255 255 255; /* #ffffff */
+  --color-border: 38 38 38; /* #262626 */
+  --color-input: 38 38 38; /* #262626 */
+  --color-ring: 220 38 38; /* #dc2626 */
+}
+
+/* Violet Theme */
+.theme-violet {
+  --color-background: 15 15 23; /* #0f0f17 */
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-card: 24 24 37; /* #181825 */
+  --color-card-foreground: 255 255 255; /* #ffffff */
+  --color-popover: 24 24 37; /* #181825 */
+  --color-popover-foreground: 255 255 255; /* #ffffff */
+  --color-primary: 139 92 246; /* #8b5cf6 */
+  --color-primary-foreground: 255 255 255; /* #ffffff */
+  --color-secondary: 45 45 68; /* #2d2d44 */
+  --color-secondary-foreground: 255 255 255; /* #ffffff */
+  --color-muted: 45 45 68; /* #2d2d44 */
+  --color-muted-foreground: 163 163 163; /* #a3a3a3 */
+  --color-accent: 45 45 68; /* #2d2d44 */
+  --color-accent-foreground: 255 255 255; /* #ffffff */
+  --color-destructive: 239 68 68; /* #ef4444 */
+  --color-destructive-foreground: 255 255 255; /* #ffffff */
+  --color-border: 45 45 68; /* #2d2d44 */
+  --color-input: 45 45 68; /* #2d2d44 */
+  --color-ring: 139 92 246; /* #8b5cf6 */
+}
+
+/* Emerald Theme */
+.theme-emerald {
+  --color-background: 15 23 15; /* #0f170f */
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-card: 24 37 24; /* #182518 */
+  --color-card-foreground: 255 255 255; /* #ffffff */
+  --color-popover: 24 37 24; /* #182518 */
+  --color-popover-foreground: 255 255 255; /* #ffffff */
+  --color-primary: 16 185 129; /* #10b981 */
+  --color-primary-foreground: 255 255 255; /* #ffffff */
+  --color-secondary: 45 68 45; /* #2d442d */
+  --color-secondary-foreground: 255 255 255; /* #ffffff */
+  --color-muted: 45 68 45; /* #2d442d */
+  --color-muted-foreground: 163 163 163; /* #a3a3a3 */
+  --color-accent: 45 68 45; /* #2d442d */
+  --color-accent-foreground: 255 255 255; /* #ffffff */
+  --color-destructive: 239 68 68; /* #ef4444 */
+  --color-destructive-foreground: 255 255 255; /* #ffffff */
+  --color-border: 45 68 45; /* #2d442d */
+  --color-input: 45 68 45; /* #2d442d */
+  --color-ring: 16 185 129; /* #10b981 */
+}
+
+/* Amber Theme */
+.theme-amber {
+  --color-background: 23 18 15; /* #17120f */
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-card: 37 29 24; /* #251d18 */
+  --color-card-foreground: 255 255 255; /* #ffffff */
+  --color-popover: 37 29 24; /* #251d18 */
+  --color-popover-foreground: 255 255 255; /* #ffffff */
+  --color-primary: 245 158 11; /* #f59e0b */
+  --color-primary-foreground: 255 255 255; /* #ffffff */
+  --color-secondary: 68 54 45; /* #44362d */
+  --color-secondary-foreground: 255 255 255; /* #ffffff */
+  --color-muted: 68 54 45; /* #44362d */
+  --color-muted-foreground: 163 163 163; /* #a3a3a3 */
+  --color-accent: 68 54 45; /* #44362d */
+  --color-accent-foreground: 255 255 255; /* #ffffff */
+  --color-destructive: 239 68 68; /* #ef4444 */
+  --color-destructive-foreground: 255 255 255; /* #ffffff */
+  --color-border: 68 54 45; /* #44362d */
+  --color-input: 68 54 45; /* #44362d */
+  --color-ring: 245 158 11; /* #f59e0b */
+}
+
+/* Aurora Theme */
+.theme-aurora {
+  --color-background: 18 15 23; /* #120f17 */
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-card: 29 24 37; /* #1d1825 */
+  --color-card-foreground: 255 255 255; /* #ffffff */
+  --color-popover: 29 24 37; /* #1d1825 */
+  --color-popover-foreground: 255 255 255; /* #ffffff */
+  --color-primary: 168 85 247; /* #a855f7 */
+  --color-primary-foreground: 255 255 255; /* #ffffff */
+  --color-secondary: 54 45 68; /* #362d44 */
+  --color-secondary-foreground: 255 255 255; /* #ffffff */
+  --color-muted: 54 45 68; /* #362d44 */
+  --color-muted-foreground: 163 163 163; /* #a3a3a3 */
+  --color-accent: 54 45 68; /* #362d44 */
+  --color-accent-foreground: 255 255 255; /* #ffffff */
+  --color-destructive: 239 68 68; /* #ef4444 */
+  --color-destructive-foreground: 255 255 255; /* #ffffff */
+  --color-border: 54 45 68; /* #362d44 */
+  --color-input: 54 45 68; /* #362d44 */
+  --color-ring: 168 85 247; /* #a855f7 */
+}
+
+/* Global theme application */
+.theme-dark,
+.theme-violet,
+.theme-emerald,
+.theme-amber,
+.theme-aurora {
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

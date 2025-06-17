@@ -1,0 +1,160 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Zap, Shield, Rocket } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
+import { Card, CardHeader, CardContent } from '@/components/ui/Card';
+import { PageLayout, SectionLayout } from '@/components/layout/Layout';
+
+const features = [
+  {
+    icon: <Zap className="h-8 w-8 text-primary" />,
+    title: 'Lightning Fast',
+    description: 'Built with Vite and optimized for performance with modern React patterns.',
+  },
+  {
+    icon: <Shield className="h-8 w-8 text-primary" />,
+    title: 'Type Safe',
+    description: 'Full TypeScript support with strict type checking and excellent DX.',
+  },
+  {
+    icon: <Rocket className="h-8 w-8 text-primary" />,
+    title: 'Production Ready',
+    description: 'Complete with testing, linting, and deployment configurations.',
+  },
+];
+
+export const Home: React.FC = () => {
+  return (
+    <PageLayout>
+      {/* Hero Section */}
+      <SectionLayout className="text-center py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="space-y-6"
+        >
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
+            FUSED GAMING
+            <span className="block text-primary">Boilerplate</span>
+          </h1>
+          
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            A modern React TypeScript boilerplate with Vite, Tailwind CSS, 
+            and comprehensive tooling for rapid development.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <Button
+              size="lg"
+              rightIcon={<ArrowRight className="h-5 w-5" />}
+            >
+              Get Started
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+            >
+              View Documentation
+            </Button>
+          </div>
+        </motion.div>
+      </SectionLayout>
+
+      {/* Features Section */}
+      <SectionLayout
+        title="Why Choose This Boilerplate?"
+        description="Everything you need to build modern web applications"
+        className="py-16"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <Card hover className="h-full">
+                <CardHeader>
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                      {feature.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground">
+                      {feature.title}
+                    </h3>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </SectionLayout>
+
+      {/* Tech Stack Section */}
+      <SectionLayout
+        title="Modern Tech Stack"
+        description="Built with the latest and greatest tools"
+        className="py-16"
+      >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            'React 18',
+            'TypeScript',
+            'Vite',
+            'Tailwind CSS',
+            'Framer Motion',
+            'React Router',
+            'Vitest',
+            'ESLint',
+          ].map((tech, index) => (
+            <motion.div
+              key={tech}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+            >
+              <Card className="text-center p-4">
+                <CardContent>
+                  <span className="font-medium text-foreground">{tech}</span>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </SectionLayout>
+
+      {/* CTA Section */}
+      <SectionLayout className="text-center py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="space-y-6"
+        >
+          <h2 className="text-3xl font-bold text-foreground">
+            Ready to Build Something Amazing?
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Start your next project with this comprehensive boilerplate and 
+            focus on what matters most - building great features.
+          </p>
+          <Button
+            size="lg"
+            rightIcon={<ArrowRight className="h-5 w-5" />}
+          >
+            Start Building
+          </Button>
+        </motion.div>
+      </SectionLayout>
+    </PageLayout>
+  );
+};
+
+export default Home;
