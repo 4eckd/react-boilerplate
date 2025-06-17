@@ -1,6 +1,12 @@
-# FUSED GAMING Documentation
+# 📚 FUSED GAMING Documentation
 
 Welcome to the comprehensive documentation for FUSED GAMING React TypeScript Boilerplate.
+
+## 🌐 Live Documentation
+
+**URL**: https://docs.react-boilerplate-taupe.vercel.app
+
+This documentation is deployed as a static site on Vercel and provides comprehensive guides for using the FUSED GAMING React TypeScript Boilerplate.
 
 ## 📚 Documentation Structure
 
