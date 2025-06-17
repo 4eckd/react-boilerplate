@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Twitter, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Twitter, Linkedin, Mail, Heart, Youtube, MessageCircle } from 'lucide-react';
 import { clsx } from 'clsx';
 
 export interface FooterProps {
@@ -30,28 +30,59 @@ export interface SocialLink {
   icon: React.ReactNode;
 }
 
-const defaultSocialLinks: SocialLink[] = [
-  {
-    platform: 'GitHub',
-    href: 'https://github.com',
-    icon: <Github className="h-5 w-5" />,
-  },
-  {
-    platform: 'Twitter',
-    href: 'https://twitter.com',
-    icon: <Twitter className="h-5 w-5" />,
-  },
-  {
-    platform: 'LinkedIn',
-    href: 'https://linkedin.com',
-    icon: <Linkedin className="h-5 w-5" />,
-  },
-  {
-    platform: 'Email',
-    href: 'mailto:contact@fusedgaming.com',
-    icon: <Mail className="h-5 w-5" />,
-  },
-];
+const getSocialLinks = (): SocialLink[] => {
+  const links: SocialLink[] = [];
+
+  if (import.meta.env.VITE_SOCIAL_GITHUB) {
+    links.push({
+      platform: 'GitHub',
+      href: import.meta.env.VITE_SOCIAL_GITHUB,
+      icon: <Github className="h-5 w-5" />,
+    });
+  }
+
+  if (import.meta.env.VITE_SOCIAL_TWITTER) {
+    links.push({
+      platform: 'Twitter',
+      href: import.meta.env.VITE_SOCIAL_TWITTER,
+      icon: <Twitter className="h-5 w-5" />,
+    });
+  }
+
+  if (import.meta.env.VITE_SOCIAL_LINKEDIN) {
+    links.push({
+      platform: 'LinkedIn',
+      href: import.meta.env.VITE_SOCIAL_LINKEDIN,
+      icon: <Linkedin className="h-5 w-5" />,
+    });
+  }
+
+  if (import.meta.env.VITE_SOCIAL_DISCORD) {
+    links.push({
+      platform: 'Discord',
+      href: import.meta.env.VITE_SOCIAL_DISCORD,
+      icon: <MessageCircle className="h-5 w-5" />,
+    });
+  }
+
+  if (import.meta.env.VITE_SOCIAL_YOUTUBE) {
+    links.push({
+      platform: 'YouTube',
+      href: import.meta.env.VITE_SOCIAL_YOUTUBE,
+      icon: <Youtube className="h-5 w-5" />,
+    });
+  }
+
+  if (import.meta.env.VITE_COMPANY_EMAIL) {
+    links.push({
+      platform: 'Email',
+      href: `mailto:${import.meta.env.VITE_COMPANY_EMAIL}`,
+      icon: <Mail className="h-5 w-5" />,
+    });
+  }
+
+  return links;
+};
 
 const defaultLinks: FooterSection[] = [
   {
@@ -85,10 +116,10 @@ const defaultLinks: FooterSection[] = [
 
 export const Footer: React.FC<FooterProps> = ({
   logo,
-  companyName = 'FUSED GAMING',
+  companyName = import.meta.env.VITE_COMPANY_NAME || 'FUSED GAMING',
   description = 'Building the future of gaming with cutting-edge technology and innovative solutions.',
   links = defaultLinks,
-  socialLinks = defaultSocialLinks,
+  socialLinks = getSocialLinks(),
   showCopyright = true,
   className,
 }) => {

@@ -16,3 +16,6 @@ export type { LoadingProps, SkeletonProps } from './Loading';
 
 export { ThemeToggle } from './ThemeToggle';
 export type { ThemeToggleProps } from './ThemeToggle';
+
+export { TechStackLogos } from './TechStackLogos';
+export type { TechStackLogosProps } from './TechStackLogos';
