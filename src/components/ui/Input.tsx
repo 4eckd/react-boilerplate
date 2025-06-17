@@ -34,8 +34,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     };
 
     const inputVariants = {
-      default: 'border border-border bg-background',
-      filled: 'border-0 bg-muted',
+      default: 'border border-border bg-background shadow-sm hover:shadow-accent-sm focus:shadow-primary-sm',
+      filled: 'border-0 bg-muted shadow-inner hover:shadow-accent-sm focus:shadow-primary-sm',
     };
 
     return (
@@ -58,21 +58,22 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             type={inputType}
             className={clsx(
               // Base styles
-              'flex h-10 w-full rounded-lg px-3 py-2 text-sm transition-all duration-200',
+              'flex h-10 w-full rounded-lg px-3 py-2 text-sm transition-all duration-300',
               'placeholder:text-muted-foreground',
-              'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background',
+              'focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background',
               'disabled:cursor-not-allowed disabled:opacity-50',
-              
+              'hover:scale-[1.01] focus:scale-[1.02]',
+
               // Variant styles
               inputVariants[variant],
-              
+
               // Icon padding
               leftIcon && 'pl-10',
               (rightIcon || isPassword) && 'pr-10',
-              
+
               // Error state
-              error && 'border-destructive focus:ring-destructive/50',
-              
+              error && 'border-destructive focus:ring-destructive/50 shadow-red-500/20',
+
               className
             )}
             {...props}

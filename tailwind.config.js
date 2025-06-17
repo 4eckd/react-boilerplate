@@ -38,6 +38,11 @@ export default {
         border: 'rgb(var(--color-border))',
         input: 'rgb(var(--color-input))',
         ring: 'rgb(var(--color-ring))',
+
+        // Shadow colors for enhanced depth
+        'shadow-primary': 'rgb(var(--shadow-primary))',
+        'shadow-secondary': 'rgb(var(--shadow-secondary))',
+        'shadow-accent': 'rgb(var(--shadow-accent))',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -77,6 +82,30 @@ export default {
       },
       backdropBlur: {
         xs: '2px',
+      },
+      boxShadow: {
+        // Enhanced colored shadows
+        'glow-sm': '0 0 10px rgb(var(--shadow-primary) / 0.3)',
+        'glow': '0 0 20px rgb(var(--shadow-primary) / 0.4)',
+        'glow-lg': '0 0 30px rgb(var(--shadow-primary) / 0.5)',
+        'glow-xl': '0 0 40px rgb(var(--shadow-primary) / 0.6)',
+
+        'primary-sm': '0 4px 14px 0 rgb(var(--shadow-primary) / 0.2)',
+        'primary': '0 8px 25px 0 rgb(var(--shadow-primary) / 0.3)',
+        'primary-lg': '0 12px 35px 0 rgb(var(--shadow-primary) / 0.4)',
+
+        'secondary-sm': '0 4px 14px 0 rgb(var(--shadow-secondary) / 0.2)',
+        'secondary': '0 8px 25px 0 rgb(var(--shadow-secondary) / 0.3)',
+        'secondary-lg': '0 12px 35px 0 rgb(var(--shadow-secondary) / 0.4)',
+
+        'accent-sm': '0 4px 14px 0 rgb(var(--shadow-accent) / 0.2)',
+        'accent': '0 8px 25px 0 rgb(var(--shadow-accent) / 0.3)',
+        'accent-lg': '0 12px 35px 0 rgb(var(--shadow-accent) / 0.4)',
+
+        'elevated': '0 20px 40px -12px rgb(0 0 0 / 0.4), 0 0 0 1px rgb(var(--color-border))',
+        'floating': '0 32px 64px -12px rgb(0 0 0 / 0.5), 0 0 0 1px rgb(var(--color-border))',
+        'neon': '0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor',
+        'neon-lg': '0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor',
       },
     },
   },

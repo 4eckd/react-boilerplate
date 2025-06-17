@@ -20,9 +20,9 @@ export interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {
 export interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const cardVariants = {
-  default: 'bg-card border border-border',
-  elevated: 'bg-card shadow-lg border border-border/50',
-  outlined: 'bg-transparent border-2 border-border',
+  default: 'bg-card border border-border shadow-lg',
+  elevated: 'bg-card shadow-elevated border border-border/50',
+  outlined: 'bg-transparent border-2 border-primary shadow-primary-sm',
 };
 
 const cardPadding = {
@@ -48,13 +48,19 @@ export const Card: React.FC<CardProps> = ({
     <MotionComponent
       whileHover={
         hover || clickable
-          ? { scale: 1.02, boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)' }
+          ? {
+              scale: 1.03,
+              boxShadow: variant === 'outlined'
+                ? '0 0 30px rgb(var(--shadow-primary) / 0.4), 0 20px 40px rgba(0, 0, 0, 0.2)'
+                : '0 25px 50px rgba(0, 0, 0, 0.15), 0 0 0 1px rgb(var(--color-border))',
+              y: -5
+            }
           : {}
       }
-      whileTap={clickable ? { scale: 0.98 } : {}}
+      whileTap={clickable ? { scale: 0.98, y: 0 } : {}}
       className={clsx(
         // Base styles
-        'rounded-lg transition-all duration-200',
+        'rounded-xl transition-all duration-300 backdrop-blur-sm',
 
         // Variant styles
         cardVariants[variant],
@@ -64,6 +70,7 @@ export const Card: React.FC<CardProps> = ({
 
         // Interactive styles
         clickable && 'cursor-pointer',
+        (hover || clickable) && 'hover:shadow-floating',
 
         className
       )}

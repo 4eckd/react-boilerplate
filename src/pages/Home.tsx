@@ -48,12 +48,14 @@ export const Home: React.FC = () => {
             <Button
               size="lg"
               rightIcon={<ArrowRight className="h-5 w-5" />}
+              className="shadow-glow hover:shadow-glow-lg"
             >
               Get Started
             </Button>
             <Button
               variant="outline"
               size="lg"
+              className="hover:shadow-primary"
             >
               View Documentation
             </Button>
@@ -75,10 +77,10 @@ export const Home: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card hover className="h-full">
+              <Card hover className="h-full" variant="elevated">
                 <CardHeader>
                   <div className="space-y-4">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shadow-primary-sm">
                       {feature.icon}
                     </div>
                     <h3 className="text-xl font-semibold text-foreground">
@@ -120,7 +122,7 @@ export const Home: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
             >
-              <Card className="text-center p-4">
+              <Card className="text-center p-4 hover:shadow-accent-sm transition-all duration-300" hover>
                 <CardContent>
                   <span className="font-medium text-foreground">{tech}</span>
                 </CardContent>
@@ -148,6 +150,7 @@ export const Home: React.FC = () => {
           <Button
             size="lg"
             rightIcon={<ArrowRight className="h-5 w-5" />}
+            className="shadow-glow hover:shadow-glow-lg"
           >
             Start Building
           </Button>

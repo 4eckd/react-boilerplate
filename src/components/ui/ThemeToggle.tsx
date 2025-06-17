@@ -14,7 +14,7 @@ export interface ThemeToggleProps {
 }
 
 const themeColors: Record<ThemeVariant, string> = {
-  dark: 'bg-red-600',
+  dark: 'bg-red-700',
   violet: 'bg-violet-600',
   emerald: 'bg-emerald-600',
   amber: 'bg-amber-600',
@@ -22,7 +22,7 @@ const themeColors: Record<ThemeVariant, string> = {
 };
 
 const themeLabels: Record<ThemeVariant, string> = {
-  dark: 'Dark',
+  dark: 'Dark Red',
   violet: 'Violet',
   emerald: 'Emerald',
   amber: 'Amber',

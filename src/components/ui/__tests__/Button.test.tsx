@@ -15,7 +15,7 @@ describe('Button', () => {
     expect(screen.getByRole('button')).toHaveClass('bg-secondary');
 
     rerender(<Button variant="outline">Outline</Button>);
-    expect(screen.getByRole('button')).toHaveClass('border');
+    expect(screen.getByRole('button')).toHaveClass('border-2');
 
     rerender(<Button variant="ghost">Ghost</Button>);
     expect(screen.getByRole('button')).toHaveClass('hover:bg-accent');

@@ -13,11 +13,11 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const buttonVariants = {
-  primary: 'bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-primary/50',
-  secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:ring-secondary/50',
-  outline: 'border border-border bg-transparent hover:bg-accent hover:text-accent-foreground focus:ring-ring/50',
-  ghost: 'hover:bg-accent hover:text-accent-foreground focus:ring-ring/50',
-  destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90 focus:ring-destructive/50',
+  primary: 'bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-primary/50 shadow-primary-sm hover:shadow-primary hover:glow-red transition-all duration-300 hover:scale-105',
+  secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:ring-secondary/50 shadow-secondary-sm hover:shadow-secondary transition-all duration-300 hover:scale-105',
+  outline: 'border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground focus:ring-primary/50 shadow-primary-sm hover:shadow-primary hover:glow-red transition-all duration-300 hover:scale-105',
+  ghost: 'hover:bg-accent hover:text-accent-foreground focus:ring-ring/50 hover:shadow-accent-sm transition-all duration-300 hover:scale-105',
+  destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90 focus:ring-destructive/50 shadow-lg hover:shadow-xl hover:glow-red transition-all duration-300 hover:scale-105',
 };
 
 const buttonSizes = {
@@ -43,13 +43,20 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <motion.button
-      whileHover={!isDisabled ? { scale: 1.02 } : {}}
-      whileTap={!isDisabled ? { scale: 0.98 } : {}}
+      whileHover={!isDisabled ? {
+        scale: 1.05,
+        boxShadow: variant === 'primary' ? '0 0 25px rgb(var(--shadow-primary) / 0.6)' :
+                   variant === 'secondary' ? '0 0 25px rgb(var(--shadow-secondary) / 0.6)' :
+                   variant === 'outline' ? '0 0 25px rgb(var(--shadow-primary) / 0.4)' :
+                   '0 0 20px rgb(var(--shadow-accent) / 0.4)'
+      } : {}}
+      whileTap={!isDisabled ? { scale: 0.95 } : {}}
       className={clsx(
         // Base styles
-        'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200',
+        'inline-flex items-center justify-center gap-2 rounded-lg font-medium',
         'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background',
-        'disabled:pointer-events-none disabled:opacity-50',
+        'disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none',
+        'relative overflow-hidden',
 
         // Variant styles
         buttonVariants[variant],
