@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, BookOpen, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { clsx } from 'clsx';
@@ -69,24 +69,48 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
             {navigation.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className={clsx(
-                  'flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors',
-                  isActiveRoute(item.href)
-                    ? 'text-primary bg-primary/10'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-accent'
-                )}
-              >
-                {item.icon && <span>{item.icon}</span>}
-                <span>{item.label}</span>
-              </Link>
+              item.external ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors text-muted-foreground hover:text-foreground hover:bg-accent"
+                >
+                  {item.icon && <span>{item.icon}</span>}
+                  <span>{item.label}</span>
+                  <ExternalLink className="h-3 w-3 ml-1" />
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={clsx(
+                    'flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors',
+                    isActiveRoute(item.href)
+                      ? 'text-primary bg-primary/10'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                  )}
+                >
+                  {item.icon && <span>{item.icon}</span>}
+                  <span>{item.label}</span>
+                </Link>
+              )
             ))}
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden md:flex items-center space-x-3">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => window.open('https://docs.react-boilerplate-taupe.vercel.app', '_blank')}
+              leftIcon={<BookOpen className="h-4 w-4" />}
+              rightIcon={<ExternalLink className="h-3 w-3" />}
+              className="hover:shadow-primary border-primary/20 hover:border-primary/40"
+            >
+              Docs
+            </Button>
             {showThemeToggle && <ThemeToggle />}
           </div>
 
@@ -118,21 +142,49 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <nav className="py-4 space-y-2">
                 {navigation.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={clsx(
-                      'flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors',
-                      isActiveRoute(item.href)
-                        ? 'text-primary bg-primary/10'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-accent'
-                    )}
-                  >
-                    {item.icon && <span>{item.icon}</span>}
-                    <span>{item.label}</span>
-                  </Link>
+                  item.external ? (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors text-muted-foreground hover:text-foreground hover:bg-accent"
+                    >
+                      {item.icon && <span>{item.icon}</span>}
+                      <span>{item.label}</span>
+                      <ExternalLink className="h-3 w-3 ml-auto" />
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={clsx(
+                        'flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors',
+                        isActiveRoute(item.href)
+                          ? 'text-primary bg-primary/10'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                      )}
+                    >
+                      {item.icon && <span>{item.icon}</span>}
+                      <span>{item.label}</span>
+                    </Link>
+                  )
                 ))}
+
+                {/* Mobile Documentation Link */}
+                <a
+                  href="https://docs.react-boilerplate-taupe.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors text-muted-foreground hover:text-foreground hover:bg-accent border-t border-border pt-4 mt-4"
+                >
+                  <BookOpen className="h-4 w-4" />
+                  <span>Documentation</span>
+                  <ExternalLink className="h-3 w-3 ml-auto" />
+                </a>
                 
                 {showThemeToggle && (
                   <div className="pt-2 border-t border-border">
